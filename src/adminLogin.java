@@ -59,6 +59,11 @@ public class adminLogin extends javax.swing.JFrame {
                 btnActionPerformed(evt);
             }
         });
+        btn.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnKeyPressed(evt);
+            }
+        });
 
         clearBtn.setText("Clear");
         clearBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +174,10 @@ public class adminLogin extends javax.swing.JFrame {
         idField.setText("");
         passField.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKeyPressed
 
     /**
      * @param args the command line arguments
