@@ -153,10 +153,12 @@ public class adminLogin extends javax.swing.JFrame {
            String sql="select * from admin where email='"+email+"' and pass='"+pass+"'"; //'"+getEmail+"' and password='"+getPass+ "'";
            ResultSet rs=stm.executeQuery(sql);
            if(rs.next()){
+                JOptionPane.showMessageDialog(this,"Login Success");
+                dispose();
                home obj=new home();
                obj.show();
-               dispose();
-               JOptionPane.showMessageDialog(this,"Login Success");
+               
+              
            }else{
            JOptionPane.showMessageDialog(this,"Login Field");
            con.close();
