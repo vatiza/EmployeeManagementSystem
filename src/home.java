@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
 /**
  *
  * @author biaddop
@@ -14,7 +18,30 @@ public class home extends javax.swing.JFrame {
      */
     public home() {
         initComponents();
+        todaydate();
+        nowTime();
     }
+    public void todaydate(){
+    Date d= new Date();
+    SimpleDateFormat sdf =new SimpleDateFormat("dd-MM-yyyy");
+    String dd=sdf.format(d);
+    todate.setText(dd);
+    }
+    Timer tm;
+    SimpleDateFormat st;
+    public void nowTime(){
+      tm= new Timer(0,new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+          Date dt =new Date();
+           st=new SimpleDateFormat("hh:mm:ss a");
+           String tt=st.format(dt);
+           totime.setText(tt);    
+        }  
+    });
+        tm.start();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,6 +62,8 @@ public class home extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        totime = new javax.swing.JLabel();
+        todate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Management System");
@@ -75,19 +104,19 @@ public class home extends javax.swing.JFrame {
                 addBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        getContentPane().add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jButton2.setText("Department");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         jButton1.setText("Salary Info");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         jButton3.setText("Bonus");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jButton4.setText("Employee");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,6 +132,12 @@ public class home extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 660, 380));
+
+        totime.setText("time");
+        getContentPane().add(totime, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+
+        todate.setText("date");
+        getContentPane().add(todate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         setSize(new java.awt.Dimension(1018, 565));
         setLocationRelativeTo(null);
@@ -161,5 +196,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel todate;
+    private javax.swing.JLabel totime;
     // End of variables declaration//GEN-END:variables
 }
