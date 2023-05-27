@@ -15,7 +15,13 @@ public class addemloyee extends javax.swing.JFrame {
      */
     public addemloyee() {
         initComponents();
+        
     }
+    public void addempexit(){
+        dispose();
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +55,7 @@ public class addemloyee extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        department = new javax.swing.JComboBox<>();
         jTextField8 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -59,7 +65,7 @@ public class addemloyee extends javax.swing.JFrame {
         addBTN = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        exitBTN_addemployee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +120,12 @@ public class addemloyee extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Cascadia Code", 1, 15)); // NOI18N
         jLabel12.setText("Bank ");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        department.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "UI/UX Design", "Database Developer", "Developer ", "System Design" }));
+        department.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                departmentActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -123,7 +134,7 @@ public class addemloyee extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Cascadia Code", 1, 15)); // NOI18N
         jLabel13.setText("Comments");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Duch Bangla Bank", "AB Bank Limited", "Agrani Bank Limited", "Bank Asia Limited", "Citibank N.A", "Dhaka Bank Limited" }));
 
         jLabel14.setFont(new java.awt.Font("Cascadia Code", 1, 15)); // NOI18N
         jLabel14.setText("Acc Number");
@@ -139,7 +150,12 @@ public class addemloyee extends javax.swing.JFrame {
 
         jButton3.setText("Dashboard");
 
-        jButton4.setText("Exit");
+        exitBTN_addemployee.setText("Exit");
+        exitBTN_addemployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBTN_addemployeeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,7 +223,7 @@ public class addemloyee extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jTextField7)
                                             .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(department, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addComponent(jLabel13))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -223,7 +239,7 @@ public class addemloyee extends javax.swing.JFrame {
                                 .addGap(22, 22, 22))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
+                        .addComponent(exitBTN_addemployee)
                         .addContainerGap())))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -250,7 +266,7 @@ public class addemloyee extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(department, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -293,14 +309,14 @@ public class addemloyee extends javax.swing.JFrame {
                     .addComponent(addBTN)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(exitBTN_addemployee))
                 .addGap(18, 18, 18))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+  
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
         // TODO add your handling code here:
         String getgender;
@@ -311,9 +327,14 @@ public class addemloyee extends javax.swing.JFrame {
            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanage","admin","admin");
      String sql="INSERT INTO employee  VALUES (?,?,?)";
       PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+      stmt.setInt(1,Integer.parseInt(nidNum.getText()));
       stmt.setString(2,fname.getText());
       stmt.setString(3,lname.getText());
-     stmt.setString(4,getgender);
+        stmt.setString(3,getgender);
+        
+      
+      
+      
      
       stmt.executeUpdate();
        JOptionPane.showMessageDialog(this,"succes");
@@ -322,6 +343,16 @@ public class addemloyee extends javax.swing.JFrame {
         System.out.print(ex);
         }
     }//GEN-LAST:event_addBTNActionPerformed
+
+    private void departmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_departmentActionPerformed
+
+    }//GEN-LAST:event_departmentActionPerformed
+
+    private void exitBTN_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTN_addemployeeActionPerformed
+        // TODO add your handling code here:
+ addempexit();
+        
+    }//GEN-LAST:event_exitBTN_addemployeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,13 +391,13 @@ public class addemloyee extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBTN;
+    private javax.swing.JComboBox<String> department;
     private com.toedter.calendar.JDateChooser dob;
+    private javax.swing.JButton exitBTN_addemployee;
     private javax.swing.JTextField fname;
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;

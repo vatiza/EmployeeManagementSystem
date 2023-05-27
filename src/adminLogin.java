@@ -16,7 +16,35 @@ public class adminLogin extends javax.swing.JFrame {
     public adminLogin() {
         initComponents();
     }
+public void login(){
 
+ try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","admin","admin");
+           String email=idField.getText();
+           String pass=passField.getText();
+           Statement stm=con.createStatement(); //Statement stm= con.createStatement();
+           //SELECT * FROM admin WHERE pass = MD5('admin') AND email = 'admin@mail.com'
+           String sql="select * from admin where email='"+email+"' and pass=MD5('"+pass+"')"; //'"+getEmail+"' and password='"+getPass+ "'";
+           ResultSet rs=stm.executeQuery(sql);
+           if(rs.next()){
+                JOptionPane.showMessageDialog(this,"Login Success");
+                dispose();
+               home obj=new home();
+               obj.show();
+               
+              
+           }else{
+           JOptionPane.showMessageDialog(this,"Login Field");
+           con.close();
+           }
+        
+        
+        }catch(Exception ex){
+            
+            System.out.println("Database not connected");
+        }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,31 +172,8 @@ public class adminLogin extends javax.swing.JFrame {
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
         // TODO add your handling code here:
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanage","admin","admin");
-           String email=idField.getText();
-           String pass=passField.getText();
-           Statement stm=con.createStatement(); //Statement stm= con.createStatement();
-           String sql="select * from admin where email='"+email+"' and pass='"+pass+"'"; //'"+getEmail+"' and password='"+getPass+ "'";
-           ResultSet rs=stm.executeQuery(sql);
-           if(rs.next()){
-                JOptionPane.showMessageDialog(this,"Login Success");
-                dispose();
-               home obj=new home();
-               obj.show();
-               
-              
-           }else{
-           JOptionPane.showMessageDialog(this,"Login Field");
-           con.close();
-           }
-        
-        
-        }catch(Exception e){
-            
-            System.out.println("Database not connected");
-        }
+        login();
+       
     }//GEN-LAST:event_btnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
