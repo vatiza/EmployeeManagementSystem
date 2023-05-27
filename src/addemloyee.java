@@ -4,6 +4,7 @@
  */
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author biaddop
@@ -17,9 +18,7 @@ public class addemloyee extends javax.swing.JFrame {
         initComponents();
         
     }
-    public void addempexit(){
-        dispose();
-    }
+   
 
 
 
@@ -44,11 +43,12 @@ public class addemloyee extends javax.swing.JFrame {
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         dob = new com.toedter.calendar.JDateChooser();
         gender = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        cityField = new javax.swing.JTextField();
+        phoneNum = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -95,15 +95,24 @@ public class addemloyee extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel15.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        jLabel15.setText("Add New Employee");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 65, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(23, 23, 23))
         );
 
         gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Others" }));
@@ -197,10 +206,10 @@ public class addemloyee extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(phoneNum, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(dob, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cityField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(addBTN)
                                 .addGap(35, 35, 35)
@@ -290,15 +299,15 @@ public class addemloyee extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(phoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -321,16 +330,25 @@ public class addemloyee extends javax.swing.JFrame {
         // TODO add your handling code here:
         String getgender;
         getgender=gender.getSelectedItem().toString();
+         
 
         try{
           Class.forName("com.mysql.cj.jdbc.Driver");
            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmanage","admin","admin");
-     String sql="INSERT INTO employee  VALUES (?,?,?)";
+     String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,7,)";
       PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
       stmt.setInt(1,Integer.parseInt(nidNum.getText()));
       stmt.setString(2,fname.getText());
       stmt.setString(3,lname.getText());
-        stmt.setString(3,getgender);
+        stmt.setString(4,getgender);
+       stmt.setString(5,((JTextField)dob.getDateEditor().getUiComponent()).getText());
+       stmt.setString(6,cityField.getText());
+       stmt.setInt(7,Integer.parseInt(phoneNum.getText()));
+       stmt.setString(8,emailField.getText());
+       
+       
+        
+        
         
       
       
@@ -350,7 +368,7 @@ public class addemloyee extends javax.swing.JFrame {
 
     private void exitBTN_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTN_addemployeeActionPerformed
         // TODO add your handling code here:
- addempexit();
+this.dispose();
         
     }//GEN-LAST:event_exitBTN_addemployeeActionPerformed
 
@@ -391,8 +409,10 @@ public class addemloyee extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBTN;
+    private javax.swing.JTextField cityField;
     private javax.swing.JComboBox<String> department;
     private com.toedter.calendar.JDateChooser dob;
+    private javax.swing.JTextField emailField;
     private javax.swing.JButton exitBTN_addemployee;
     private javax.swing.JTextField fname;
     private javax.swing.JComboBox<String> gender;
@@ -406,6 +426,7 @@ public class addemloyee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -417,12 +438,10 @@ public class addemloyee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField lname;
     private javax.swing.JTextField nidNum;
+    private javax.swing.JTextField phoneNum;
     // End of variables declaration//GEN-END:variables
 }
