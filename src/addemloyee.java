@@ -2,10 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.util.regex.*;    
 /**
  *
  * @author biaddop
@@ -19,7 +22,18 @@ public class addemloyee extends javax.swing.JFrame {
         initComponents();
         
     }
+   public void clealField(){
+     nidNum.setText("");
+     fname.setText("");
+      lname.setText("");
+            cityField.setText("");
+    phoneNum.setText("");
+     emailField.setText("");
+       empidField.setText("");     
+    accNum.setText("");
+     getComnt.setText("");
    
+   }
 
 
 
@@ -62,7 +76,7 @@ public class addemloyee extends javax.swing.JFrame {
         bankBox = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         addBTN = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        resetBTN = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         exitBTN_addemployee = new javax.swing.JButton();
         dob = new com.toedter.calendar.JDateChooser();
@@ -155,10 +169,25 @@ public class addemloyee extends javax.swing.JFrame {
                 addBTNActionPerformed(evt);
             }
         });
+        addBTN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                addBTNKeyPressed(evt);
+            }
+        });
 
-        jButton2.setText("Reset");
+        resetBTN.setText("Reset");
+        resetBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetBTNActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Dashboard");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         exitBTN_addemployee.setText("Exit");
         exitBTN_addemployee.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +242,7 @@ public class addemloyee extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(addBTN)
                                 .addGap(35, 35, 35)
-                                .addComponent(jButton2)
+                                .addComponent(resetBTN)
                                 .addGap(39, 39, 39)
                                 .addComponent(jButton3))
                             .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -317,7 +346,7 @@ public class addemloyee extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBTN)
-                    .addComponent(jButton2)
+                    .addComponent(resetBTN)
                     .addComponent(jButton3)
                     .addComponent(exitBTN_addemployee))
                 .addGap(18, 18, 18))
@@ -326,22 +355,20 @@ public class addemloyee extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-  
-    private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
-        // TODO add your handling code here:
-       
-        String getgender=gender.getSelectedItem().toString();
+public void saveAllData(){
+    
+      String getgender=gender.getSelectedItem().toString();
         String getDeptBox=deptBox.getSelectedItem().toString();
         String getBank=bankBox.getSelectedItem().toString();
       SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
       String getDate=sdf.format(dob.getDate());
       String getJoint=sdf.format(jointDate.getDate());
+        
          
-
         try{
           Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","admin","admin");
-     String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
+     String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";   //(1,2,3,4,5,6,7,8,9,10,11,12,13,14)
       PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
       stmt.setInt(1,Integer.parseInt(nidNum.getText()));
       stmt.setString(2,fname.getText());
@@ -350,8 +377,8 @@ public class addemloyee extends javax.swing.JFrame {
     stmt.setString(5,getDate);
        stmt.setString(6,cityField.getText());
        stmt.setInt(7,Integer.parseInt(phoneNum.getText()));
-       stmt.setString(8,emailField.getText());
-       stmt.setInt(9,Integer.parseInt(empidField.getText()));
+    stmt.setString(8,emailField.getText());
+     stmt.setInt(9,Integer.parseInt(empidField.getText()));
        stmt.setString(10,getJoint);
      stmt.setString(11,getDeptBox);
      stmt.setString(12,getBank);
@@ -363,6 +390,13 @@ public class addemloyee extends javax.swing.JFrame {
         }catch(Exception ex){
         JOptionPane.showMessageDialog(this,ex);
         }
+        clealField();
+
+}
+    private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
+        // TODO add your handling code here:
+       saveAllData();
+      
     }//GEN-LAST:event_addBTNActionPerformed
 
     private void deptBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptBoxActionPerformed
@@ -374,6 +408,28 @@ public class addemloyee extends javax.swing.JFrame {
 this.dispose();
         
     }//GEN-LAST:event_exitBTN_addemployeeActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        home obj=new home();
+        obj.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void resetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBTNActionPerformed
+        // TODO add your handling code here:
+        clealField();
+    }//GEN-LAST:event_resetBTNActionPerformed
+
+    private void addBTNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addBTNKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+            
+            saveAllData();
+            
+        }
+        
+    }//GEN-LAST:event_addBTNKeyPressed
 
     /**
      * @param args the command line arguments
@@ -423,7 +479,6 @@ this.dispose();
     private javax.swing.JTextField fname;
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JTextArea getComnt;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -446,5 +501,6 @@ this.dispose();
     private javax.swing.JTextField lname;
     private javax.swing.JTextField nidNum;
     private javax.swing.JTextField phoneNum;
+    private javax.swing.JButton resetBTN;
     // End of variables declaration//GEN-END:variables
 }

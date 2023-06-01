@@ -2,11 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.sql.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author biaddop
@@ -20,6 +26,7 @@ public class home extends javax.swing.JFrame {
         initComponents();
         todaydate();
         nowTime();
+        showAllEmpl();
     }
     public void todaydate(){
     Date d= new Date();
@@ -41,7 +48,25 @@ public class home extends javax.swing.JFrame {
     });
         tm.start();
     }
-    
+    public void showAllEmpl(){
+        try{
+           Class.forName("com.mysql.cj.jdbc.Driver");
+           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
+            System.out.println("Database Connected!");
+            String sql;
+            sql="SELECT *FROM employee";
+             PreparedStatement stm = con.prepareStatement(sql);
+             ResultSet rs=stm.executeQuery();
+             DefaultTableModel model=(DefaultTableModel)allempTable.getModel();
+             model.setRowCount(0);
+             while(rs.next()){
+                 model.addRow(new String[]{rs.getString(11),rs.getString(9),rs.getString(2),rs.getString(7),rs.getString(8),rs.getString(4),rs.getString(10)});
+                    }
+        }catch(Exception ex){
+            System.out.println(ex);
+            
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,7 +81,7 @@ public class home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        allempTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         todate = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -68,6 +93,8 @@ public class home extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        searchField = new javax.swing.JTextField();
+        searchBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Management System");
@@ -102,18 +129,26 @@ public class home extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 60));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        allempTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Dept", "EmpId", "Fist Name", "Phone", "Email", "Gendar", "Joint Date"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(allempTable);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 660, 380));
 
@@ -211,6 +246,21 @@ public class home extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 320, 230));
 
+        searchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchFieldKeyReleased(evt);
+            }
+        });
+        getContentPane().add(searchField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 120, -1));
+
+        searchBTN.setText("Clear");
+        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBTNActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, -1, -1));
+
         setSize(new java.awt.Dimension(1018, 565));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -221,6 +271,27 @@ public class home extends javax.swing.JFrame {
         obj.show();
         
     }//GEN-LAST:event_addBtnActionPerformed
+public void searchEmployee(){
+ DefaultTableModel ob=(DefaultTableModel) allempTable.getModel();
+        TableRowSorter<DefaultTableModel>obj=new TableRowSorter<>(ob);
+        allempTable.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(searchField.getText()));
+}
+    private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
+        // TODO add your handling code here:
+      searchField.setText("");
+      searchEmployee();
+
+       
+        
+    }//GEN-LAST:event_searchBTNActionPerformed
+
+    private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
+        // TODO add your handling code here:
+        searchEmployee();
+        
+      
+    }//GEN-LAST:event_searchFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -259,6 +330,7 @@ public class home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
+    private javax.swing.JTable allempTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -271,7 +343,8 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton searchBTN;
+    private javax.swing.JTextField searchField;
     private javax.swing.JLabel todate;
     private javax.swing.JLabel totime;
     // End of variables declaration//GEN-END:variables

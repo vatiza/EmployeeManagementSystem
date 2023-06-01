@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -20,7 +21,7 @@ public void login(){
 
  try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","admin","admin");
+           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
            String email=idField.getText();
            String pass=passField.getText();
            Statement stm=con.createStatement(); //Statement stm= con.createStatement();
@@ -183,7 +184,7 @@ public void login(){
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKeyPressed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnKeyPressed
 
     /**
