@@ -65,6 +65,7 @@ public void login(){
         jLabel5 = new javax.swing.JLabel();
         btn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Management System");
@@ -101,6 +102,13 @@ public void login(){
             }
         });
 
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,8 +128,10 @@ public void login(){
                         .addGap(251, 251, 251)
                         .addComponent(btn)
                         .addGap(29, 29, 29)
-                        .addComponent(clearBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(clearBtn)
+                        .addGap(40, 40, 40)
+                        .addComponent(jButton1)))
+                .addContainerGap(125, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(134, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -150,7 +160,8 @@ public void login(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn)
-                    .addComponent(clearBtn))
+                    .addComponent(clearBtn)
+                    .addComponent(jButton1))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -186,6 +197,11 @@ public void login(){
     private void btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKeyPressed
        
     }//GEN-LAST:event_btnKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,6 +242,7 @@ public void login(){
     private javax.swing.JButton btn;
     private javax.swing.JButton clearBtn;
     private javax.swing.JTextField idField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
