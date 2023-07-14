@@ -24,7 +24,7 @@ public void login(){
            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
            String email=idField.getText();
            String pass=passField.getText();
-           Statement stm=con.createStatement(); //Statement stm= con.createStatement();
+           Statement stm=con.createStatement(); 
            //SELECT * FROM admin WHERE pass = MD5('admin') AND email = 'admin@mail.com'
            String sql="select * from admin where email='"+email+"' and pass=MD5('"+pass+"')"; //'"+getEmail+"' and password='"+getPass+ "'";
            ResultSet rs=stm.executeQuery(sql);
@@ -77,6 +77,12 @@ public void login(){
         jLabel1.setText("Email");
 
         jLabel2.setText("Password");
+
+        passField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passFieldKeyPressed(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(51, 0, 255));
         jLabel5.setFont(new java.awt.Font("Jamrul", 1, 24)); // NOI18N
@@ -202,6 +208,13 @@ public void login(){
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void passFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passFieldKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+            login();
+        }
+    }//GEN-LAST:event_passFieldKeyPressed
 
     /**
      * @param args the command line arguments
