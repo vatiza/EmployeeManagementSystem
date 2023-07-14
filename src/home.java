@@ -91,7 +91,7 @@ public class home extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        salarybtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchBTN = new javax.swing.JButton();
@@ -215,7 +215,12 @@ public class home extends javax.swing.JFrame {
 
         jButton2.setText("Department");
 
-        jButton1.setText("Salary Info");
+        salarybtn.setText("Salary Info");
+        salarybtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salarybtnActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Bonus");
 
@@ -229,7 +234,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(addBtn)
                     .addComponent(jButton4)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(salarybtn)
                     .addComponent(jButton3))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -243,7 +248,7 @@ public class home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(salarybtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addContainerGap(64, Short.MAX_VALUE))
@@ -304,6 +309,13 @@ public void searchEmployee(){
         obj.show();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void salarybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salarybtnActionPerformed
+        // TODO add your handling code here:
+        salary obj=new salary();
+        obj.show();
+        
+    }//GEN-LAST:event_salarybtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,7 +354,6 @@ public void searchEmployee(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JTable allempTable;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -354,6 +365,7 @@ public void searchEmployee(){
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton salarybtn;
     private javax.swing.JButton searchBTN;
     private javax.swing.JTextField searchField;
     private javax.swing.JLabel todate;

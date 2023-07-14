@@ -21,27 +21,9 @@ public class removeEmployee extends javax.swing.JFrame {
      */
     public removeEmployee() {
         initComponents();
-        showAllEmpl();
+      
     }
-    public void showAllEmpl(){
-        try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
-            System.out.println("Database Connected!");
-            String sql;
-            sql="SELECT *FROM employee";
-             PreparedStatement stm = con.prepareStatement(sql);
-             ResultSet rs=stm.executeQuery();
-             DefaultTableModel model=(DefaultTableModel)allempTable.getModel();
-             model.setRowCount(0);
-             while(rs.next()){
-                 model.addRow(new String[]{rs.getString(11),rs.getString(9),rs.getString(2),rs.getString(7),rs.getString(8),rs.getString(4),rs.getString(10)});
-                    }
-        }catch(Exception ex){
-            System.out.println(ex);
-            
-        }
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,8 +36,6 @@ public class removeEmployee extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        allempTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,29 +64,6 @@ public class removeEmployee extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 70));
-
-        allempTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Dept", "EmpId", "Fist Name", "Phone", "Email", "Gendar", "Joint Date"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(allempTable);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 370, 380));
 
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,10 +118,8 @@ public class removeEmployee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable allempTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
