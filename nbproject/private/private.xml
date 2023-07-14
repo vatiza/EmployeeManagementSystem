@@ -4,9 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/adminLogin.java</file>
-            <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/employee.java</file>
             <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/home.java</file>
-            <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/payroll.java</file>
+            <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/removeEmployee.java</file>
+            <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/addemloyee.java</file>
+            <file>file:/media/biaddop/Project%20File/JavaProject/EmployeeManagementSystem/src/salary.java</file>
         </group>
     </open-files>
 </project-private>
