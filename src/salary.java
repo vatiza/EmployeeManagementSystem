@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -22,9 +23,8 @@ public class salary extends javax.swing.JFrame {
         initComponents();
         showAllEmpl();
     }
-    
-    
-       public void totalSalaryCal() {
+
+    public void totalSalaryCal() {
         int getAmount = Integer.parseInt(mainSalary.getText());
         int getBonus = Integer.parseInt(bonus.getText());
         String totalCal = String.valueOf(getAmount + getBonus);
@@ -35,7 +35,6 @@ public class salary extends javax.swing.JFrame {
         }
 
     }
-
 
     public void showAllEmpl() {
         try {
@@ -49,16 +48,17 @@ public class salary extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
             model.setRowCount(0);
             while (rs.next()) {
-                model.addRow(new String[] { rs.getString(11), rs.getString(9), rs.getString(2), rs.getString(7),
-                        rs.getString(8), rs.getString(12), rs.getString(13) });
+                model.addRow(new String[]{rs.getString(11), rs.getString(9), rs.getString(2), rs.getString(7),
+                    rs.getString(8), rs.getString(12), rs.getString(13)});
             }
         } catch (Exception ex) {
             System.out.println(ex);
 
         }
     }
-public void setTextFromTable(){
-DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
+
+    public void setTextFromTable() {
+        DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
         int selectrowindex = allempTable.getSelectedRow();
         empId.setText(model.getValueAt(selectrowindex, 1).toString());
         empName.setText(model.getValueAt(selectrowindex, 2).toString());
@@ -66,7 +66,9 @@ DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
         getPhone.setText(model.getValueAt(selectrowindex, 3).toString());
         getMail.setText(model.getValueAt(selectrowindex, 4).toString());
         getBankName.setText(model.getValueAt(selectrowindex, 5).toString());
-        getBankAccount.setText(model.getValueAt(selectrowindex, 6).toString());}
+        getBankAccount.setText(model.getValueAt(selectrowindex, 6).toString());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -414,17 +416,36 @@ DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
 
     private void sentPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sentPayrollActionPerformed
         // TODO add your handling code here:
-        String getMonths=months.getSelectedItem().toString();
-        try{
-          Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
-           
-        }catch(Exception Ex){
+        String getMonths = months.getSelectedItem().toString();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+            String sql = "INSERT INTO salary VALUES (?,?,?,?,?,?,?,?)";
+
+            /* (try next time)
+                      String sql = "INSERT INTO salary (emp_id, mainsalary, bonus, months, totalParoll) " +
+             "SELECT employee.emp_id, ?, 0, ?, ? * ?, ? * ? + ? * ? " +
+             "FROM employee";
+             */
+            PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+            stmt.setString(1, empId.getText());
+            stmt.setString(2, getMonths);
+            stmt.setInt(3, Integer.parseInt(mainSalary.getText()));
+            stmt.setInt(4, Integer.parseInt(bonus.getText()));
+            stmt.setInt(5, Integer.parseInt(totalSalarySum.getText()));
+            stmt.setString(6,dept.getText());
+            stmt.setString(7,getBankName.getText());
+            stmt.setInt(8,Integer.parseInt(getBankAccount.getText()));
             
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Salary Sent");
+            con.close();
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_sentPayrollActionPerformed
 
     private void allempTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_allempTableMouseClicked
@@ -467,7 +488,6 @@ DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
         } // TODO add your handling code here:
     }// GEN-LAST:event_bonusFocusLost
 
- 
     /**
      * @param args the command line arguments
      */

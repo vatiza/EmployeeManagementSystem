@@ -384,8 +384,11 @@ public void saveAllData(){
                    `phone`, `email`, `emp_id`, `jointdate`, `dept`, `bank`, `acc_num`, `comments`)
                   VALUES (**********************************************)
                     */     
-           String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14)
+           String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14) in employee table
+        
+           
       PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
       stmt.setInt(1,Integer.parseInt(nidNum.getText()));
       stmt.setString(2,fname.getText());
       stmt.setString(3,lname.getText());
@@ -401,6 +404,7 @@ public void saveAllData(){
     stmt.setInt(13,Integer.parseInt(accNum.getText()));
      stmt.setString(14,getComnt.getText());
      stmt.executeUpdate();
+     
      JOptionPane.showMessageDialog(null,"Save Succesfull" );
          con.close();
         }catch(Exception ex){
