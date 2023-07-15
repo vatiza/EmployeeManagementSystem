@@ -97,21 +97,15 @@ The Employee Management Software developed using Java and MySQL, in combination 
 
 ## Screenshot
 
-![Loginpage](https://pasteboard.co/xfoMHwFJg2RP.png)
 
-![homePage](https://prnt.sc/l09tZ4-OaotU)
+![Screenshot from 2023-07-16 00-58-31](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/e74bd444-99d4-4719-873d-10d23788b289)
+![Screenshot from 2023-07-16 01-28-16](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/43569cc5-1205-4bf5-a1fa-5235cbaa81d4)
+![Screenshot from 2023-07-16 01-28-50](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/0d933ead-acf1-4cd1-9889-e1e8e2f838b9)
+![Screenshot from 2023-07-16 01-29-01](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/5142eec4-bb8c-4425-a3a6-19020a4616c8)
+![Screenshot from 2023-07-16 01-30-09](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/c27e0824-e03b-42cd-ac36-151efc23633c)
+![Screenshot from 2023-07-16 01-30-26](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/b6c7091a-3b08-4fa9-92ef-21bd9e5f03be)
+![Screenshot from 2023-07-16 01-30-40](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/8fd00abd-d8ab-4bbd-a070-c987a805bd55)
 
-![Add New Employee](https://prnt.sc/LCRXmSjRQS-7)
-
-![Remove Employee](https://prnt.sc/Z2zjoXdPbUX2)
-
-![Resign Emlpoyee](https://prnt.sc/otOIrVAWl0eP)
-
-![Salary](https://prnt.sc/lvGT_AM2yAt4)
-
-![Database ](https://prnt.sc/eRzOlW4aptk5)
-
-![About us](https://prnt.sc/Lm8MjhHq6R0f)
 
 
 
