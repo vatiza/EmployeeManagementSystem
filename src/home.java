@@ -89,13 +89,13 @@ public class home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         addBtn = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        resignBTN = new javax.swing.JButton();
         salarybtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchBTN = new javax.swing.JButton();
         refreshTable = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Management System");
@@ -207,14 +207,12 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Resignation Employee");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        resignBTN.setText("Resignation Employee");
+        resignBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                resignBTNActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Department");
 
         salarybtn.setText("Salary Info");
         salarybtn.addActionListener(new java.awt.event.ActionListener() {
@@ -222,8 +220,6 @@ public class home extends javax.swing.JFrame {
                 salarybtnActionPerformed(evt);
             }
         });
-
-        jButton3.setText("Bonus");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -233,10 +229,8 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addBtn)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2)
-                    .addComponent(salarybtn)
-                    .addComponent(jButton3))
+                    .addComponent(resignBTN)
+                    .addComponent(salarybtn))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -245,17 +239,13 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(addBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(resignBTN)
+                .addGap(18, 18, 18)
                 .addComponent(salarybtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 220, 230));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 220, 120));
 
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -279,6 +269,22 @@ public class home extends javax.swing.JFrame {
             }
         });
         getContentPane().add(refreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, -1, -1));
+
+        jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 490, -1, -1));
+
+        jButton2.setText("About us");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, -1, -1));
 
         setSize(new java.awt.Dimension(1018, 565));
         setLocationRelativeTo(null);
@@ -306,15 +312,13 @@ public void searchEmployee(){
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
         // TODO add your handling code here:
         searchEmployee();
-        
-      
     }//GEN-LAST:event_searchFieldKeyReleased
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void resignBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resignBTNActionPerformed
         // TODO add your handling code here:
         removeEmployee obj=new removeEmployee();
         obj.show();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_resignBTNActionPerformed
 
     private void salarybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salarybtnActionPerformed
         // TODO add your handling code here:
@@ -327,6 +331,19 @@ public void searchEmployee(){
         // TODO add your handling code here:
         showAllEmpl();
     }//GEN-LAST:event_refreshTableActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        adminLogin obj=new adminLogin ();
+        obj.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        aboutus obj=new aboutus();
+        obj.show();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,9 +383,8 @@ public void searchEmployee(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JTable allempTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -378,6 +394,7 @@ public void searchEmployee(){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshTable;
+    private javax.swing.JButton resignBTN;
     private javax.swing.JButton salarybtn;
     private javax.swing.JButton searchBTN;
     private javax.swing.JTextField searchField;

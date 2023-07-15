@@ -77,22 +77,20 @@ public class deleteEmployee extends javax.swing.JFrame {
         empTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        reasonField = new javax.swing.JTextArea();
         getempid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         empname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         getDept = new javax.swing.JTextField();
         closeBTn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel1.setText("Delete Employee");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        jLabel1.setText("Remove Employee");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
 
         empTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,27 +118,18 @@ public class deleteEmployee extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(empTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 750, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 750, 380));
 
-        jButton1.setText("Delete this Employee");
+        jButton1.setText("Remove this Employee");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         jLabel2.setText("EmpId");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-
-        jLabel3.setText("Reason");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-
-        reasonField.setColumns(20);
-        reasonField.setRows(5);
-        jScrollPane2.setViewportView(reasonField);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 250, 150));
 
         getempid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -163,7 +152,10 @@ public class deleteEmployee extends javax.swing.JFrame {
                 closeBTnActionPerformed(evt);
             }
         });
-        getContentPane().add(closeBTn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 480, -1, -1));
+        getContentPane().add(closeBTn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 490, -1, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 760, 70));
 
         pack();
         setLocationRelativeTo(null);
@@ -187,7 +179,31 @@ public class deleteEmployee extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        String empId = getempid.getText();
+
+// Prepare the SQL statements
+        String insertQuery = "INSERT INTO removed_employee SELECT * FROM employee WHERE emp_id = ?";
+        String deleteQuery = "DELETE FROM employee WHERE emp_id = ?";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+            PreparedStatement insertStatement = con.prepareStatement(insertQuery);
+            PreparedStatement deleteStatement = con.prepareStatement(deleteQuery);
+            {
+                insertStatement.setString(1, empId);
+                deleteStatement.setString(1, empId);
+
+                insertStatement.executeUpdate();
+                deleteStatement.executeUpdate();
+                System.out.println("Employee with emp_id " + empId + " removed successfully.");
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        showAllEmpl();
+      
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -235,12 +251,10 @@ public class deleteEmployee extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea reasonField;
     // End of variables declaration//GEN-END:variables
 
 }

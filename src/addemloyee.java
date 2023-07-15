@@ -79,9 +79,9 @@ public class addemloyee extends javax.swing.JFrame {
         exitBTN_addemployee = new javax.swing.JButton();
         dob = new com.toedter.calendar.JDateChooser();
         jointDate = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
         idCreateBTN = new javax.swing.JButton();
         bankGenNumBTN = new javax.swing.JButton();
+        removeEmpl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,8 +211,6 @@ public class addemloyee extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Delete Employee");
-
         idCreateBTN.setFont(new java.awt.Font("Cascadia Code", 0, 14)); // NOI18N
         idCreateBTN.setText("Create Id");
         idCreateBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -226,6 +224,13 @@ public class addemloyee extends javax.swing.JFrame {
         bankGenNumBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bankGenNumBTNActionPerformed(evt);
+            }
+        });
+
+        removeEmpl.setText("Remove Employee");
+        removeEmpl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeEmplActionPerformed(evt);
             }
         });
 
@@ -279,39 +284,42 @@ public class addemloyee extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(96, 96, 96)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14))
-                        .addGap(36, 36, 36)
-                        .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(109, 109, 109)
-                        .addComponent(exitBTN_addemployee))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
+                        .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(empidField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(idCreateBTN))
-                            .addComponent(jointDate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deptBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel14))
+                                .addGap(36, 36, 36)
+                                .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
-                                .addComponent(bankGenNumBTN))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(empidField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(idCreateBTN))
+                                    .addComponent(jointDate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(deptBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(bankGenNumBTN))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(7, 7, 7)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addComponent(removeEmpl)
+                        .addGap(234, 234, 234)
+                        .addComponent(exitBTN_addemployee)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -373,7 +381,7 @@ public class addemloyee extends javax.swing.JFrame {
                             .addComponent(resetBTN)
                             .addComponent(jButton3)
                             .addComponent(exitBTN_addemployee)
-                            .addComponent(jButton1))
+                            .addComponent(removeEmpl))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,9 +468,8 @@ public void saveAllData() {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        home obj = new home();
-        obj.show();
+      this.dispose();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void resetBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBTNActionPerformed
@@ -507,6 +514,12 @@ public void saveAllData() {
         accNum.setText(Long.toString(randomNumber));
 
     }//GEN-LAST:event_bankGenNumBTNActionPerformed
+
+    private void removeEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmplActionPerformed
+        // TODO add your handling code here:
+        deleteEmployee obj=new deleteEmployee();
+        obj.show();
+    }//GEN-LAST:event_removeEmplActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,7 +571,6 @@ public void saveAllData() {
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JTextArea getComnt;
     private javax.swing.JButton idCreateBTN;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -581,6 +593,7 @@ public void saveAllData() {
     private javax.swing.JTextField lname;
     private javax.swing.JTextField nidNum;
     private javax.swing.JTextField phoneNum;
+    private javax.swing.JButton removeEmpl;
     private javax.swing.JButton resetBTN;
     // End of variables declaration//GEN-END:variables
 }
