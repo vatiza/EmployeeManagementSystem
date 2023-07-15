@@ -4,7 +4,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -68,6 +70,12 @@ public class salary extends javax.swing.JFrame {
         getBankName.setText(model.getValueAt(selectrowindex, 5).toString());
         getBankAccount.setText(model.getValueAt(selectrowindex, 6).toString());
     }
+    public void searchemployee(){
+    DefaultTableModel ob=(DefaultTableModel) allempTable.getModel();
+        TableRowSorter<DefaultTableModel>obj=new TableRowSorter<>(ob);
+        allempTable.setRowSorter(obj);
+        obj.setRowFilter(RowFilter.regexFilter(searchempl.getText()));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,6 +120,9 @@ public class salary extends javax.swing.JFrame {
         totalSalarySum = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         sentPayroll = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        searchempl = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -310,6 +321,29 @@ public class salary extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setText("Search");
+
+        searchempl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchemplActionPerformed(evt);
+            }
+        });
+        searchempl.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchemplKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchemplKeyReleased(evt);
+            }
+        });
+
+        jButton1.setText("Close");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -360,7 +394,13 @@ public class salary extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(114, 114, 114)
                 .addComponent(sentPayroll)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(239, 239, 239)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(searchempl, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,7 +443,11 @@ public class salary extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(sentPayroll)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sentPayroll)
+                            .addComponent(jLabel17)
+                            .addComponent(searchempl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
                         .addContainerGap(61, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,6 +491,25 @@ public class salary extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_sentPayrollActionPerformed
+
+    private void searchemplKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchemplKeyPressed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_searchemplKeyPressed
+
+    private void searchemplKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchemplKeyReleased
+        // TODO add your handling code here:
+          searchemployee();
+    }//GEN-LAST:event_searchemplKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void searchemplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchemplActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchemplActionPerformed
 
     private void allempTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_allempTableMouseClicked
         // TODO add your handling code here:
@@ -537,6 +600,7 @@ public class salary extends javax.swing.JFrame {
     private javax.swing.JTextField getBankName;
     private javax.swing.JTextField getMail;
     private javax.swing.JTextField getPhone;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -545,6 +609,7 @@ public class salary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -559,6 +624,7 @@ public class salary extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mainSalary;
     private javax.swing.JComboBox<String> months;
+    private javax.swing.JTextField searchempl;
     private javax.swing.JButton sentPayroll;
     private javax.swing.JTextField totalSalarySum;
     // End of variables declaration//GEN-END:variables
