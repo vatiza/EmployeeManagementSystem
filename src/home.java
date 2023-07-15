@@ -95,6 +95,7 @@ public class home extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         searchField = new javax.swing.JTextField();
         searchBTN = new javax.swing.JButton();
+        refreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee Management System");
@@ -271,6 +272,14 @@ public class home extends javax.swing.JFrame {
         });
         getContentPane().add(searchBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, -1, -1));
 
+        refreshTable.setText("Refresh");
+        refreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTableActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, -1, -1));
+
         setSize(new java.awt.Dimension(1018, 565));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -292,8 +301,6 @@ public void searchEmployee(){
       searchField.setText("");
       searchEmployee();
 
-       
-        
     }//GEN-LAST:event_searchBTNActionPerformed
 
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
@@ -315,6 +322,11 @@ public void searchEmployee(){
         obj.show();
         
     }//GEN-LAST:event_salarybtnActionPerformed
+
+    private void refreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTableActionPerformed
+        // TODO add your handling code here:
+        showAllEmpl();
+    }//GEN-LAST:event_refreshTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,6 +377,7 @@ public void searchEmployee(){
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshTable;
     private javax.swing.JButton salarybtn;
     private javax.swing.JButton searchBTN;
     private javax.swing.JTextField searchField;

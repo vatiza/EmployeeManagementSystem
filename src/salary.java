@@ -51,7 +51,7 @@ public class salary extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
             model.setRowCount(0);
             while (rs.next()) {
-                model.addRow(new String[]{rs.getString(11), rs.getString(9), rs.getString(2), rs.getString(7),
+                model.addRow(new String[]{rs.getString(11), rs.getString(9), rs.getString(2),rs.getString(3), rs.getString(7),
                     rs.getString(8), rs.getString(12), rs.getString(13)});
             }
         } catch (Exception ex) {
@@ -64,12 +64,13 @@ public class salary extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
         int selectrowindex = allempTable.getSelectedRow();
         empId.setText(model.getValueAt(selectrowindex, 1).toString());
-        empName.setText(model.getValueAt(selectrowindex, 2).toString());
+        empFname.setText(model.getValueAt(selectrowindex, 2).toString());
+      empLname.setText(model.getValueAt(selectrowindex, 3).toString());
         dept.setText(model.getValueAt(selectrowindex, 0).toString());
-        getPhone.setText(model.getValueAt(selectrowindex, 3).toString());
-        getMail.setText(model.getValueAt(selectrowindex, 4).toString());
-        getBankName.setText(model.getValueAt(selectrowindex, 5).toString());
-        getBankAccount.setText(model.getValueAt(selectrowindex, 6).toString());
+        getPhone.setText(model.getValueAt(selectrowindex, 4).toString());
+        getMail.setText(model.getValueAt(selectrowindex, 5).toString());
+        getBankName.setText(model.getValueAt(selectrowindex, 6).toString());
+        getBankAccount.setText(model.getValueAt(selectrowindex, 7).toString());
     }
     public void searchemployee(){
     DefaultTableModel ob=(DefaultTableModel) allempTable.getModel();
@@ -101,7 +102,7 @@ public class salary extends javax.swing.JFrame {
         getBankName = new javax.swing.JTextField();
         getBankAccount = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        empName = new javax.swing.JTextField();
+        empFname = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         allempTable = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -127,6 +128,8 @@ public class salary extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         trans_Id = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        empLname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,7 +145,7 @@ public class salary extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(256, 256, 256)
                 .addComponent(jLabel1)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,21 +167,21 @@ public class salary extends javax.swing.JFrame {
 
         jLabel6.setText("Account Number ");
 
-        jLabel7.setText("Name");
+        jLabel7.setText("First Name");
 
         allempTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Dept", "EmpId", "Fist Name", "Phone", "Email", "Bank", "Account Number"
+                "Dept", "EmpId", "Fist Name", "Last Name", "Phone", "Email", "Bank", "Account Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, true, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -355,6 +358,10 @@ public class salary extends javax.swing.JFrame {
 
         jLabel18.setText("Transaction Id");
 
+        trans_Id.setFocusable(false);
+
+        jLabel20.setText("Last Name");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -367,43 +374,44 @@ public class salary extends javax.swing.JFrame {
                         .addGap(189, 189, 189)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(sentPayroll))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(trans_Id, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(getBankAccount))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel3))
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(getBankName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(108, 108, 108)
+                                    .addComponent(sentPayroll))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(126, 126, 126)
+                                    .addComponent(months, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel4)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jLabel3))
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel7))
+                                    .addGap(32, 32, 32)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(dept, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(getBankName)
+                                        .addComponent(dept)
                                         .addComponent(getMail)
                                         .addComponent(empId)
-                                        .addComponent(empName)
-                                        .addComponent(getPhone)))))
-                        .addGap(0, 0, 0)
+                                        .addComponent(empFname)
+                                        .addComponent(getPhone)
+                                        .addComponent(empLname, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel18))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(getBankAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                        .addComponent(trans_Id))))
+                            .addComponent(jLabel20))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(261, 261, 261)
@@ -431,9 +439,13 @@ public class salary extends javax.swing.JFrame {
                             .addComponent(empId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(empName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(empFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
-                        .addGap(24, 24, 24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(empLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(getPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -468,7 +480,7 @@ public class salary extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(jLabel4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
@@ -493,13 +505,8 @@ public class salary extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
-            String sql = "INSERT INTO salary VALUES (?,?,?,?,?,?,?,?)";
-
-            /* (try next time)
-                      String sql = "INSERT INTO salary (emp_id, mainsalary, bonus, months, totalParoll) " +
-             "SELECT employee.emp_id, ?, 0, ?, ? * ?, ? * ? + ? * ? " +
-             "FROM employee";
-             */
+            String sql = "INSERT INTO salary VALUES (?,?,?,?,?,?,?,?,?)";
+            
             PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
             stmt.setString(1, empId.getText());
             stmt.setString(2, getMonths);
@@ -509,16 +516,15 @@ public class salary extends javax.swing.JFrame {
             stmt.setString(6,dept.getText());
             stmt.setString(7,getBankName.getText());
             stmt.setInt(8,Integer.parseInt(getBankAccount.getText()));
+            stmt.setString(9,trans_Id.getText());
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Salary Sent");
             con.close();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
+            JOptionPane.showMessageDialog(null, "Someting Wrong!");
         }
-
-
     }//GEN-LAST:event_sentPayrollActionPerformed
 
     private void searchemplKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchemplKeyPressed
@@ -630,8 +636,9 @@ this.dispose();
     private javax.swing.JTable allempTable;
     private javax.swing.JTextField bonus;
     private javax.swing.JTextField dept;
+    private javax.swing.JTextField empFname;
     private javax.swing.JTextField empId;
-    private javax.swing.JTextField empName;
+    private javax.swing.JTextField empLname;
     private javax.swing.JTextField getBankAccount;
     private javax.swing.JTextField getBankName;
     private javax.swing.JTextField getMail;
@@ -649,6 +656,7 @@ this.dispose();
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -493,7 +493,7 @@ public void saveAllData() {
     private void idCreateBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCreateBTNActionPerformed
         // TODO add your handling code here:
         Random random = new Random();
-        long randomNumber = random.nextInt(9000000) + 1000000000;
+        long randomNumber = random.nextInt(9000000) + 1000000000;  //10 digit random number generated
         empidField.setText(Long.toString(randomNumber));
 
 
@@ -501,8 +501,9 @@ public void saveAllData() {
 
     private void bankGenNumBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankGenNumBTNActionPerformed
         // TODO add your handling code here:
+       
         Random random = new Random();
-        long randomNumber = random.nextInt(9000000) + 1000000000;
+        long randomNumber = random.nextInt(9000000) + 1000000000; //10 digit random number generated
         accNum.setText(Long.toString(randomNumber));
 
     }//GEN-LAST:event_bankGenNumBTNActionPerformed
