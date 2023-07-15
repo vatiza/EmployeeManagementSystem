@@ -1,5 +1,19 @@
 ﻿
 ## Employee Management Software
+```bash
+# admin login
+Login Email : admin@mail.com
+Login Password : admin
+ ```
+```bash
+# Database account
+Database Name : empmange
+Database User : vatiza
+Database Password : admin
+localhost 
+```
+
+
 
 ### Introduction
 
@@ -84,12 +98,19 @@ The Employee Management Software developed using Java and MySQL, in combination 
 ## Screenshot
 
 ![Loginpage](https://pasteboard.co/xfoMHwFJg2RP.png)
+
 ![homePage](https://prnt.sc/l09tZ4-OaotU)
+
 ![Add New Employee](https://prnt.sc/LCRXmSjRQS-7)
+
 ![Remove Employee](https://prnt.sc/Z2zjoXdPbUX2)
+
 ![Resign Emlpoyee](https://prnt.sc/otOIrVAWl0eP)
+
 ![Salary](https://prnt.sc/lvGT_AM2yAt4)
+
 ![Database ](https://prnt.sc/eRzOlW4aptk5)
+
 ![About us](https://prnt.sc/Lm8MjhHq6R0f)
 
 
