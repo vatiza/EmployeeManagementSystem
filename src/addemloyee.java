@@ -4,8 +4,10 @@
  */
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.Random;
 import javax.swing.JOptionPane;
-import java.util.regex.*;    
+import java.util.regex.*;
+
 /**
  *
  * @author biaddop
@@ -17,22 +19,21 @@ public class addemloyee extends javax.swing.JFrame {
      */
     public addemloyee() {
         initComponents();
-        
+
     }
-   public void clealField(){
-     nidNum.setText("");
-     fname.setText("");
-      lname.setText("");
-            cityField.setText("");
-    phoneNum.setText("");
-     emailField.setText("");
-       empidField.setText("");     
-    accNum.setText("");
-     getComnt.setText("");
-   
-   }
 
+    public void clealField() {
+        nidNum.setText("");
+        fname.setText("");
+        lname.setText("");
+        cityField.setText("");
+        phoneNum.setText("");
+        emailField.setText("");
+        empidField.setText("");
+        accNum.setText("");
+        getComnt.setText("");
 
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +80,8 @@ public class addemloyee extends javax.swing.JFrame {
         dob = new com.toedter.calendar.JDateChooser();
         jointDate = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        idCreateBTN = new javax.swing.JButton();
+        bankGenNumBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,7 +204,7 @@ public class addemloyee extends javax.swing.JFrame {
             }
         });
 
-        exitBTN_addemployee.setText("Exit");
+        exitBTN_addemployee.setText("Close");
         exitBTN_addemployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBTN_addemployeeActionPerformed(evt);
@@ -209,6 +212,22 @@ public class addemloyee extends javax.swing.JFrame {
         });
 
         jButton1.setText("Delete Employee");
+
+        idCreateBTN.setFont(new java.awt.Font("Cascadia Code", 0, 14)); // NOI18N
+        idCreateBTN.setText("Create Id");
+        idCreateBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idCreateBTNActionPerformed(evt);
+            }
+        });
+
+        bankGenNumBTN.setFont(new java.awt.Font("Fira Code", 0, 15)); // NOI18N
+        bankGenNumBTN.setText("Gen AccNum");
+        bankGenNumBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bankGenNumBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,53 +279,54 @@ public class addemloyee extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(18, 18, 18)
+                .addGap(96, 96, 96)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
                             .addComponent(jLabel12)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(empidField)
-                                    .addComponent(deptBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jointDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabel13))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                            .addComponent(jLabel14))
+                        .addGap(36, 36, 36)
+                        .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exitBTN_addemployee)
-                        .addContainerGap())))
+                        .addGap(109, 109, 109)
+                        .addComponent(exitBTN_addemployee))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(empidField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(idCreateBTN))
+                            .addComponent(jointDate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deptBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bankGenNumBTN))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(nidNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(empidField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(empidField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idCreateBTN))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -315,32 +335,27 @@ public class addemloyee extends javax.swing.JFrame {
                         .addComponent(jLabel10))
                     .addComponent(jointDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(deptBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addComponent(gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(cityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -351,76 +366,86 @@ public class addemloyee extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addBTN)
+                            .addComponent(resetBTN)
+                            .addComponent(jButton3)
+                            .addComponent(exitBTN_addemployee)
+                            .addComponent(jButton1))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addBTN)
-                    .addComponent(resetBTN)
-                    .addComponent(jButton3)
-                    .addComponent(exitBTN_addemployee)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bankBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(accNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bankGenNumBTN))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-public void saveAllData(){
-    
-      String getgender=gender.getSelectedItem().toString();
-        String getDeptBox=deptBox.getSelectedItem().toString();
-        String getBank=bankBox.getSelectedItem().toString();
-      SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-      String getDate=sdf.format(dob.getDate());
-      String getJoint=sdf.format(jointDate.getDate());
-        
-         
-        try{
-          Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
-                  /* Table Data in side column
+public void saveAllData() {
+
+        String getgender = gender.getSelectedItem().toString();
+        String getDeptBox = deptBox.getSelectedItem().toString();
+        String getBank = bankBox.getSelectedItem().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String getDate = sdf.format(dob.getDate());
+        String getJoint = sdf.format(jointDate.getDate());
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+            /* Table Data in side column
            INSERT INTO `employee` (`nid`, `fname`, `lname`, `gendar`, `dob`, `city`,
                    `phone`, `email`, `emp_id`, `jointdate`, `dept`, `bank`, `acc_num`, `comments`)
                   VALUES (**********************************************)
-                    */     
-           String sql="INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14) in employee table
-        
-           
-      PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+             */
+            String sql = "INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14) in employee table
 
-      stmt.setInt(1,Integer.parseInt(nidNum.getText()));
-      stmt.setString(2,fname.getText());
-      stmt.setString(3,lname.getText());
-        stmt.setString(4,getgender);
-    stmt.setString(5,getDate);
-       stmt.setString(6,cityField.getText());
-       stmt.setInt(7,Integer.parseInt(phoneNum.getText()));
-    stmt.setString(8,emailField.getText());
-     stmt.setInt(9,Integer.parseInt(empidField.getText()));
-       stmt.setString(10,getJoint);
-     stmt.setString(11,getDeptBox);
-     stmt.setString(12,getBank);
-    stmt.setInt(13,Integer.parseInt(accNum.getText()));
-     stmt.setString(14,getComnt.getText());
-     stmt.executeUpdate();
-     
-     JOptionPane.showMessageDialog(null,"Save Succesfull" );
-         con.close();
-        }catch(Exception ex){
-        JOptionPane.showMessageDialog(null,ex);
+            PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+
+            stmt.setInt(1, Integer.parseInt(nidNum.getText()));
+            stmt.setString(2, fname.getText());
+            stmt.setString(3, lname.getText());
+            stmt.setString(4, getgender);
+            stmt.setString(5, getDate);
+            stmt.setString(6, cityField.getText());
+            stmt.setInt(7, Integer.parseInt(phoneNum.getText()));
+            stmt.setString(8, emailField.getText());
+            stmt.setString(9, empidField.getText());
+
+            stmt.setString(10, getJoint);
+            stmt.setString(11, getDeptBox);
+            stmt.setString(12, getBank);
+            stmt.setString(13, accNum.getText());
+
+            stmt.setString(14, getComnt.getText());
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Save Succesfull");
+            con.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
         //clealField();
 
-}
+    }
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
         // TODO add your handling code here:
-       saveAllData();
-      
+        saveAllData();
+
     }//GEN-LAST:event_addBTNActionPerformed
 
     private void deptBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deptBoxActionPerformed
@@ -429,14 +454,14 @@ public void saveAllData(){
 
     private void exitBTN_addemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBTN_addemployeeActionPerformed
         // TODO add your handling code here:
-this.dispose();
-        
+        this.dispose();
+
     }//GEN-LAST:event_exitBTN_addemployeeActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        home obj=new home();
+        home obj = new home();
         obj.show();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -446,13 +471,13 @@ this.dispose();
     }//GEN-LAST:event_resetBTNActionPerformed
 
     private void addBTNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addBTNKeyPressed
-     
+
     }//GEN-LAST:event_addBTNKeyPressed
 
     private void nidNumFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nidNumFocusGained
         // TODO add your handling code here:
-        
-      
+
+
     }//GEN-LAST:event_nidNumFocusGained
 
     private void nidNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nidNumActionPerformed
@@ -461,9 +486,26 @@ this.dispose();
 
     private void nidNumFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nidNumFocusLost
         // TODO add your handling code here:
-     
-        
+
+
     }//GEN-LAST:event_nidNumFocusLost
+
+    private void idCreateBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCreateBTNActionPerformed
+        // TODO add your handling code here:
+        Random random = new Random();
+        long randomNumber = random.nextInt(9000000) + 1000000000;
+        empidField.setText(Long.toString(randomNumber));
+
+
+    }//GEN-LAST:event_idCreateBTNActionPerformed
+
+    private void bankGenNumBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bankGenNumBTNActionPerformed
+        // TODO add your handling code here:
+        Random random = new Random();
+        long randomNumber = random.nextInt(9000000) + 1000000000;
+        accNum.setText(Long.toString(randomNumber));
+
+    }//GEN-LAST:event_bankGenNumBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -504,6 +546,7 @@ this.dispose();
     private javax.swing.JTextField accNum;
     private javax.swing.JButton addBTN;
     private javax.swing.JComboBox<String> bankBox;
+    private javax.swing.JButton bankGenNumBTN;
     private javax.swing.JTextField cityField;
     private javax.swing.JComboBox<String> deptBox;
     private com.toedter.calendar.JDateChooser dob;
@@ -513,6 +556,7 @@ this.dispose();
     private javax.swing.JTextField fname;
     private javax.swing.JComboBox<String> gender;
     private javax.swing.JTextArea getComnt;
+    private javax.swing.JButton idCreateBTN;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
