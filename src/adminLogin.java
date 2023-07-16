@@ -43,7 +43,7 @@ public void login(){
         
         }catch(Exception ex){
             
-            System.out.println("Database not connected");
+           JOptionPane.showMessageDialog(null,"Database not connected");
         }
 }
     /**
@@ -63,7 +63,7 @@ public void login(){
         jLabel2 = new javax.swing.JLabel();
         passField = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        btn = new javax.swing.JButton();
+        loginBTn = new javax.swing.JButton();
         clearBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -89,15 +89,15 @@ public void login(){
         jLabel5.setForeground(new java.awt.Color(102, 0, 255));
         jLabel5.setText("Welcome Back! Login Here");
 
-        btn.setText("Login");
-        btn.addActionListener(new java.awt.event.ActionListener() {
+        loginBTn.setText("Login");
+        loginBTn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActionPerformed(evt);
+                loginBTnActionPerformed(evt);
             }
         });
-        btn.addKeyListener(new java.awt.event.KeyAdapter() {
+        loginBTn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnKeyPressed(evt);
+                loginBTnKeyPressed(evt);
             }
         });
 
@@ -132,7 +132,7 @@ public void login(){
                             .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(251, 251, 251)
-                        .addComponent(btn)
+                        .addComponent(loginBTn)
                         .addGap(29, 29, 29)
                         .addComponent(clearBtn)
                         .addGap(40, 40, 40)
@@ -165,7 +165,7 @@ public void login(){
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn)
+                    .addComponent(loginBTn)
                     .addComponent(clearBtn)
                     .addComponent(jButton1))
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -188,11 +188,11 @@ public void login(){
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
+    private void loginBTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBTnActionPerformed
         // TODO add your handling code here:
         login();
        
-    }//GEN-LAST:event_btnActionPerformed
+    }//GEN-LAST:event_loginBTnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         // TODO add your handling code here:
@@ -200,9 +200,9 @@ public void login(){
         passField.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
 
-    private void btnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnKeyPressed
+    private void loginBTnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginBTnKeyPressed
        
-    }//GEN-LAST:event_btnKeyPressed
+    }//GEN-LAST:event_loginBTnKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -252,7 +252,6 @@ public void login(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn;
     private javax.swing.JButton clearBtn;
     private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
@@ -262,6 +261,7 @@ public void login(){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton loginBTn;
     private javax.swing.JPasswordField passField;
     // End of variables declaration//GEN-END:variables
 }

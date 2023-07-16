@@ -130,9 +130,9 @@ public class salary extends javax.swing.JFrame {
         trans_Id = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         empLname = new javax.swing.JTextField();
-        resignEmpl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Salary Window");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -364,13 +364,6 @@ public class salary extends javax.swing.JFrame {
 
         jLabel20.setText("Last Name");
 
-        resignEmpl.setText("Resign");
-        resignEmpl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resignEmplActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -425,9 +418,7 @@ public class salary extends javax.swing.JFrame {
                                 .addComponent(sentPayroll)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(resignEmpl)
-                                .addGap(72, 72, 72)
+                                .addGap(154, 154, 154)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(65, 65, 65)
@@ -506,14 +497,12 @@ public class salary extends javax.swing.JFrame {
                                 .addComponent(searchempl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel17)
-                                    .addComponent(resignEmpl)))))
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel17))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(sentPayroll)))
-                .addGap(28, 28, 28))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -573,12 +562,6 @@ this.dispose();
         long randomNumber = random.nextLong() % 1000000000000L + 1000000000000L;
         trans_Id.setText(Long.toString(randomNumber));
     }//GEN-LAST:event_mainSalaryFocusGained
-
-    private void resignEmplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resignEmplActionPerformed
-        // TODO add your handling code here:
-        deleteEmployee obj=new deleteEmployee();
-        obj.show();
-    }//GEN-LAST:event_resignEmplActionPerformed
 
     private void allempTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_allempTableMouseClicked
         // TODO add your handling code here:
@@ -697,7 +680,6 @@ this.dispose();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField mainSalary;
     private javax.swing.JComboBox<String> months;
-    private javax.swing.JButton resignEmpl;
     private javax.swing.JTextField searchempl;
     private javax.swing.JButton sentPayroll;
     private javax.swing.JTextField totalSalarySum;

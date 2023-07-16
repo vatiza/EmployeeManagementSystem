@@ -84,12 +84,14 @@ public class deleteEmployee extends javax.swing.JFrame {
         getDept = new javax.swing.JTextField();
         closeBTn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        refreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Delete Employee");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
-        jLabel1.setText("Remove Employee");
+        jLabel1.setText("Delete Employee");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
 
         empTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -120,7 +122,7 @@ public class deleteEmployee extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 750, 380));
 
-        jButton1.setText("Remove this Employee");
+        jButton1.setText("Delete this Employee");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -156,6 +158,14 @@ public class deleteEmployee extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 760, 70));
+
+        refreshTable.setText("Refresh");
+        refreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTableActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -199,13 +209,19 @@ public class deleteEmployee extends javax.swing.JFrame {
             }
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
+System.out.print(ex);
+// JOptionPane.showMessageDialog(null, ex);
         }
         showAllEmpl();
       
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void refreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTableActionPerformed
+        // TODO add your handling code here:
+        showAllEmpl();
+    }//GEN-LAST:event_refreshTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,6 +271,7 @@ public class deleteEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshTable;
     // End of variables declaration//GEN-END:variables
 
 }

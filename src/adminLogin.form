@@ -59,7 +59,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-                          <Component id="btn" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginBTn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="clearBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="loginBTn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="clearBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -155,13 +155,13 @@
             <Property name="text" type="java.lang.String" value="Welcome Back! Login Here"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn">
+        <Component class="javax.swing.JButton" name="loginBTn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="btnKeyPressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBTnActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="loginBTnKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="clearBtn">

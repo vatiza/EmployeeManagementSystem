@@ -38,7 +38,7 @@ public class removeEmployee extends javax.swing.JFrame {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
             System.out.println("Database Connected!");
             String sql;
-            sql = "SELECT *FROM employee";
+            sql = "SELECT *FROM removed_employee";
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
@@ -70,8 +70,10 @@ public class removeEmployee extends javax.swing.JFrame {
         allempTable = new javax.swing.JTable();
         searchField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        refreshTable = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Resignation Employee list");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
@@ -145,6 +147,14 @@ public class removeEmployee extends javax.swing.JFrame {
         jLabel3.setText("Search");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
 
+        refreshTable.setText("Refresh");
+        refreshTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTableActionPerformed(evt);
+            }
+        });
+        getContentPane().add(refreshTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +171,11 @@ public class removeEmployee extends javax.swing.JFrame {
     private void searchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchFieldKeyReleased
 searchemployee();        // TODO add your handling code here:
     }//GEN-LAST:event_searchFieldKeyReleased
+
+    private void refreshTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTableActionPerformed
+        // TODO add your handling code here:
+        showAllEmpl();
+    }//GEN-LAST:event_refreshTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,6 +219,7 @@ searchemployee();        // TODO add your handling code here:
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshTable;
     private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 }

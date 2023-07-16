@@ -252,7 +252,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="190" width="220" height="120"/>
+          <AbsoluteConstraints x="10" y="190" width="220" height="170"/>
         </Constraint>
       </Constraints>
 
@@ -263,8 +263,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="addBtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="resignBTN" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="salarybtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="removeEMpl" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="resignBTN" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
@@ -276,10 +278,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="addBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="resignBTN" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="salarybtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="removeEMpl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="resignBTN" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -308,6 +314,19 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salarybtnActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="removeEMpl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Delete Employee"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeEMplActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add New Admin"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
