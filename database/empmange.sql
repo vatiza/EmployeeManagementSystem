@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2023 at 09:15 PM
+-- Generation Time: Jul 16, 2023 at 09:10 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -67,18 +67,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`nid`, `fname`, `lname`, `gendar`, `dob`, `city`, `phone`, `email`, `emp_id`, `jointdate`, `dept`, `bank`, `acc_num`, `comments`) VALUES
-(1232243, 'Rakibur', 'Rahman', 'Male', '2000-12-01', 'Narail', 1629563621, 'rr4kib@gmail.com', 1000328555, '2023-01-10', 'Developer ', 'Duch Bangla Bank', 1008078173, 'recived main certificate'),
-(123112132, 'Eyamin', 'Molla', 'Male', '2000-07-19', 'Magura', 174565432, 'eyamil@gmail.com', 1001743781, '2023-07-02', 'Developer ', 'Agrani Bank Limited', 1004700153, ''),
-(123112132, 'Eyamin', 'Molla', 'Male', '2000-07-19', 'Magura', 174565432, 'eyamil@gmail.com', 1002608976, '2023-07-02', 'UI/UX Design', 'Duch Bangla Bank', 1008431317, ''),
-(767452132, 'Sumona', 'Molla', 'Female', '2002-10-18', 'Jessore', 171565432, 'sumona@gmail.com', 1002716861, '2023-07-04', 'UI/UX Design', 'AB Bank Limited', 1004724784, ''),
-(456565132, 'MD', 'Maruf', 'Male', '1998-12-23', 'Narail', 1376535326, 'maruf@gmail.com', 1003543073, '2019-10-09', 'Database Developer', 'Dhaka Bank Limited', 1007702693, ''),
-(2145112132, 'Sabbir', 'Molla', 'Male', '2001-07-18', 'Jessore', 1712755432, 'sabbir@gmail.com', 1003976002, '2023-05-14', 'Developer ', 'Citibank N.A', 1008522538, ''),
-(762354132, 'Rakibur', 'Rahman', 'Male', '2000-12-01', 'Dhanmondi', 1629563621, 'rr4kib@gmail.com', 1004292201, '2022-06-14', 'Developer ', 'Duch Bangla Bank', 1007149489, ''),
-(323532132, 'Rita', 'Khanom', 'Female', '2002-12-12', 'Faridpur', 134435326, 'rita@gmail.com', 1004723862, '2022-07-20', 'System Design', 'AB Bank Limited', 1002286713, ''),
-(767454132, 'Sumaiaa', 'bubt', 'Female', '2002-10-18', 'Mirpur', 17176632, 'mirpur@gmail.com', 1005938510, '2023-10-09', 'Database Developer', 'Duch Bangla Bank', 1002359401, ''),
-(45654132, 'MD', 'Mohibbullah', 'Male', '1994-12-14', 'Vangga', 1343532621, 'mohib@gmail.com', 1006131746, '2019-10-09', 'Database Developer', 'Dhaka Bank Limited', 1008008812, ''),
-(33221, 'Rita', 'Khanom', 'Female', '2000-12-11', 'Faridpur', 16598655, 'rita.bd@gmail.com', 1006512288, '2022-09-05', 'System Design', 'Duch Bangla Bank', 1000459475, 'not submit nid'),
-(342455132, 'Anika', 'Islam', 'Female', '2002-12-12', 'Dhaka', 165535326, 'anika@gmail.com', 1006804625, '2022-07-20', 'UI/UX Design', 'Duch Bangla Bank', 1002267898, '');
+(2342422, 'Sumu', 'Rahamn', 'Female', '2023-06-28', 'Dhaka', 2133421423, 'sumu@gmai.com', 1001104209, '2023-10-09', 'Database Developer', 'Duch Bangla Bank', 1006988362, '');
 
 -- --------------------------------------------------------
 
@@ -108,9 +97,8 @@ CREATE TABLE `removed_employee` (
 --
 
 INSERT INTO `removed_employee` (`nid`, `fname`, `lname`, `gendar`, `dob`, `city`, `phone`, `email`, `emp_id`, `jointdate`, `dept`, `bank`, `acc_num`, `comments`) VALUES
-(123112132, 'Habib', 'Molla', 'Male', '2000-07-16', 'Khulna', 1712365432, 'habib@gmail.com', 1003190849, '2023-07-02', 'System Design', 'Agrani Bank Limited', 1006701717, ''),
-(123112132, 'Eyamin', 'Molla', 'Male', '2000-07-19', 'Magura', 174565432, 'eyamil@gmail.com', 1007382269, '2023-07-02', 'UI/UX Design', 'Duch Bangla Bank', 1008431317, ''),
-(435654132, 'Nahian', 'Islam', 'Male', '2000-12-11', 'Dhanmondi', 1623532621, 'nahian@gmail.com', 1001533703, '2020-10-13', 'Database Developer', 'Duch Bangla Bank', 1001611218, '');
+(234242332, 'Nidad', 'Rahamn', 'Male', '2023-06-05', 'Dhaka', 3421423, 'niaddd@gmai.com', 1006933744, '2023-07-26', 'System Design', 'Dhaka Bank Limited', 1007685494, ''),
+(2342423, 'Rakibur', 'Rahamn', 'Male', '2023-06-05', 'Dhaka', 3421423, 'rakib@gmai.com', 1000820761, '2023-07-26', 'UI/UX Design', 'Bank Asia Limited', 1001653322, '');
 
 -- --------------------------------------------------------
 
@@ -135,9 +123,7 @@ CREATE TABLE `salary` (
 --
 
 INSERT INTO `salary` (`emp_id`, `months`, `mainsalary`, `bonus`, `totalParoll`, `dept`, `bank_name`, `accNum`, `transId`) VALUES
-(1006131746, 'January', 12000, 0, 12000, 'Database Developer', 'Dhaka Bank Limited', 1008008812, '1221166608107'),
-(1001743781, 'June', 11000, 200, 11200, 'Developer ', 'Agrani Bank Limited', 1004700153, '1928608584844'),
-(1002716861, 'April', 12000, 1500, 13500, 'UI/UX Design', 'AB Bank Limited', 1004724784, '226780398165');
+(1001104209, 'January', 32423, 0, 32423, 'Database Developer', 'Duch Bangla Bank', 1006988362, '593530998938');
 
 --
 -- Indexes for dumped tables
@@ -164,6 +150,7 @@ ALTER TABLE `salary`
 -- Constraints for table `salary`
 --
 ALTER TABLE `salary`
+  ADD CONSTRAINT `emp_id` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employee` (`emp_id`);
 COMMIT;
 
