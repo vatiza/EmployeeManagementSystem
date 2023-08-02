@@ -28,13 +28,15 @@ public class salary extends javax.swing.JFrame {
     }
 
     public void totalSalaryCal() {
-        int getAmount = Integer.parseInt(mainSalary.getText());
-        int getBonus = Integer.parseInt(bonus.getText());
-        String totalCal = String.valueOf(getAmount + getBonus);
-        if (getBonus == 0) {
-            totalSalarySum.setText(String.valueOf(getAmount));
+         double getMainSalary = Integer.parseInt(mainSalary.getText());
+        double getBonusPercentange = Integer.parseInt(bonus.getText());
+        //String totalCal = String.valueOf(getAmount + getBonus);
+        double increasementSalry=getMainSalary*(getBonusPercentange/100);
+        String totalSalary=String.valueOf(getMainSalary+increasementSalry);
+        if (getBonusPercentange == 0) {
+            totalSalarySum.setText(String.valueOf(getMainSalary));
         } else {
-            totalSalarySum.setText(totalCal);
+            totalSalarySum.setText(totalSalary);
         }
 
     }
@@ -202,7 +204,7 @@ public class salary extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel8.setText("Amount");
+        jLabel8.setText("Total Amount");
 
         mainSalary.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -244,8 +246,8 @@ public class salary extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Kinnari", 0, 10)); // NOI18N
         jLabel12.setText("TK");
 
-        jLabel13.setFont(new java.awt.Font("Kinnari", 0, 10)); // NOI18N
-        jLabel13.setText("TK");
+        jLabel13.setFont(new java.awt.Font("Fira Code", 0, 18)); // NOI18N
+        jLabel13.setText("%");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
