@@ -98,13 +98,14 @@ The Employee Management Software developed using Java and MySQL, in combination 
 ## Screenshot
 
 
-![Screenshot from 2023-07-16 00-58-31](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/e74bd444-99d4-4719-873d-10d23788b289)
-![Screenshot from 2023-07-16 01-28-16](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/43569cc5-1205-4bf5-a1fa-5235cbaa81d4)
-![Screenshot from 2023-07-16 01-28-50](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/0d933ead-acf1-4cd1-9889-e1e8e2f838b9)
-![Screenshot from 2023-07-16 01-29-01](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/5142eec4-bb8c-4425-a3a6-19020a4616c8)
-![Screenshot from 2023-07-16 01-30-09](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/c27e0824-e03b-42cd-ac36-151efc23633c)
-![Screenshot from 2023-07-16 01-30-26](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/b6c7091a-3b08-4fa9-92ef-21bd9e5f03be)
-![Screenshot from 2023-07-16 01-30-40](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/8fd00abd-d8ab-4bbd-a070-c987a805bd55)
+![Screenshot from 2023-08-04 16-58-57](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/c095d20a-92a0-4507-bb76-21c773f15d9e)
+![Screenshot from 2023-07-16 01-30-40](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/e5e4d939-59f4-4182-8db3-f35c62d6b2a7)
+![Screenshot from 2023-07-16 01-30-09](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/b00e4de1-5582-405d-9df4-8f010f263674)
+![Screenshot from 2023-07-16 01-29-01](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/df148e99-e628-4944-8b74-95e352e656f5)
+![Screenshot from 2023-07-16 01-28-50](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/98ef35cb-dc0f-40fc-81b9-e8da8e274331)
+![Screenshot from 2023-07-16 01-28-16](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/1cb9771f-2152-4168-9cde-bbab8f5fbb55)
+![Screenshot from 2023-07-16 00-58-31](https://github.com/vatiza/EmployeeManagementSystem/assets/31613147/01db0226-de99-44ec-a0db-32c27a249a66)
+
 
 
 
