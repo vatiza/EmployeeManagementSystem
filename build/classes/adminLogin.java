@@ -36,14 +36,13 @@ public void login(){
                
               
            }else{
-               System.out.print(rs);
            JOptionPane.showMessageDialog(this,"Login Field");
            con.close();
            }
         
         
         }catch(Exception ex){
-          System.out.print(ex);
+            
            JOptionPane.showMessageDialog(null,"Database not connected");
         }
 }
