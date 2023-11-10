@@ -12,7 +12,13 @@ Database User : vatiza
 Database Password : admin
 localhost 
 ```
+#### java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+```bash
+Right Click the project -- > build path -- > configure build path
+In Libraries Tab press Add External Jar and Select your jar.
+mysql-connector-j-8.0.33.jar
 
+```
 
 
 ### Introduction
