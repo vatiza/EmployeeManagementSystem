@@ -337,7 +337,7 @@ public class home extends javax.swing.JFrame {
 
     private void resignBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resignBTNActionPerformed
         // TODO add your handling code here:
-        removeEmployee obj = new removeEmployee();
+        resignation_employee obj = new resignation_employee();
         obj.show();
     }//GEN-LAST:event_resignBTNActionPerformed
 
