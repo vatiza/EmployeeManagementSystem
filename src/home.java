@@ -205,14 +205,14 @@ public class home extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        addBtn.setText("Add Employee");
+        addBtn.setText("New Employee");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addBtnActionPerformed(evt);
             }
         });
 
-        resignBTN.setText("Resignation Employee");
+        resignBTN.setText("After Resignation Employee");
         resignBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resignBTNActionPerformed(evt);
@@ -226,7 +226,7 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        removeEMpl.setText("Delete Employee");
+        removeEMpl.setText("Kickout Employee");
         removeEMpl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeEMplActionPerformed(evt);
@@ -247,7 +247,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(removeEMpl)
                     .addComponent(resignBTN)
                     .addComponent(jButton3))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,12 +260,12 @@ public class home extends javax.swing.JFrame {
                 .addComponent(removeEMpl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resignBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 220, 170));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 230, 240));
 
         searchField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -312,7 +312,7 @@ public class home extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
-        addemloyee obj = new addemloyee();
+        addNewemloyee obj = new addNewemloyee();
         obj.show();
 
     }//GEN-LAST:event_addBtnActionPerformed

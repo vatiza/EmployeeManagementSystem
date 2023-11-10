@@ -252,7 +252,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="190" width="220" height="170"/>
+          <AbsoluteConstraints x="10" y="190" width="230" height="240"/>
         </Constraint>
       </Constraints>
 
@@ -268,7 +268,7 @@
                       <Component id="resignBTN" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -283,7 +283,7 @@
                   <Component id="removeEMpl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="resignBTN" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -293,7 +293,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="addBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Add Employee"/>
+            <Property name="text" type="java.lang.String" value="New Employee"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnActionPerformed"/>
@@ -301,7 +301,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="resignBTN">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Resignation Employee"/>
+            <Property name="text" type="java.lang.String" value="After Resignation Employee"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resignBTNActionPerformed"/>
@@ -317,7 +317,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="removeEMpl">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Delete Employee"/>
+            <Property name="text" type="java.lang.String" value="Kickout Employee"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeEMplActionPerformed"/>
