@@ -70,7 +70,7 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="getBankAccount" pref="149" max="32767" attributes="0"/>
+                                      <Component id="getBankAccount" max="32767" attributes="0"/>
                                       <Component id="trans_Id" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
