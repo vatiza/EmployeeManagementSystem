@@ -21,15 +21,17 @@ public class deleteEmployee extends javax.swing.JFrame {
     /**
      * Creates new form deleteEmployee
      */
+    Connection con=null;
     public deleteEmployee() {
         initComponents();
+         con=(Connection)DBConnect.connect();
         showAllEmpl();
+       
     }
 
     public void showAllEmpl() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+    
             System.out.println("Database Connected!");
             String sql;
             sql = "SELECT *FROM employee";

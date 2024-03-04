@@ -19,8 +19,10 @@ public class newadmin extends javax.swing.JFrame {
     /**
      * Creates new form newadmin
      */
+    Connection con=null;
     public newadmin() {
         initComponents();
+        con=(Connection)DBConnect.connect();
     }
 
     /**
@@ -137,8 +139,7 @@ public class newadmin extends javax.swing.JFrame {
                 String password = new String(passField.getPassword());
                 String hashedPassword = generateMD5(password);
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+           
        
             String sql = "INSERT INTO admin (email, pass) VALUES (?, ?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14) in employee table
 

@@ -17,8 +17,10 @@ public class addNewemloyee extends javax.swing.JFrame {
     /**
      * Creates new form addemloyee
      */
+    Connection con=null;
     public addNewemloyee() {
         initComponents();
+        con=(Connection)DBConnect.connect();
 
     }
 
@@ -399,8 +401,7 @@ public void saveAllData() {
           
 
             
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+            
             String sql = "INSERT INTO employee  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";  //(1,2,3,4,5,6,7,8,9,10,11,12,13,14) in employee table
             PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 
