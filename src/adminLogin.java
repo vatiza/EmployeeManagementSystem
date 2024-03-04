@@ -14,17 +14,18 @@ public class adminLogin extends javax.swing.JFrame {
     /**
      * Creates new form adminLogin
      */
+    Connection conn=null;
     public adminLogin() {
         initComponents();
+        conn=(Connection) DBConnect.connect();
     }
 public void login(){
 
  try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange","vatiza","admin");
+           
            String email=idField.getText();
            String pass=passField.getText();
-           Statement stm=con.createStatement(); 
+           Statement stm=conn.createStatement(); 
            //SELECT * FROM admin WHERE pass = MD5('admin') AND email = 'admin@mail.com'
            String sql="select * from admin where email='"+email+"' and pass=MD5('"+pass+"')"; //'"+getEmail+"' and password='"+getPass+ "'";
            ResultSet rs=stm.executeQuery(sql);
@@ -38,7 +39,7 @@ public void login(){
            }else{
                System.out.print(rs);
            JOptionPane.showMessageDialog(this,"Login Field");
-           con.close();
+           conn.close();
            }
         
         

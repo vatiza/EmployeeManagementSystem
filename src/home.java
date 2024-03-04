@@ -22,11 +22,17 @@ public class home extends javax.swing.JFrame {
     /**
      * Creates new form home
      */
+    Connection conn=null;
     public home() {
+         
         initComponents();
+          conn=(Connection)DBConnect.connect();
         todaydate();
         nowTime();
+    
         showAllEmpl();
+          
+       
     }
 
     public void todaydate() {
@@ -53,12 +59,12 @@ public class home extends javax.swing.JFrame {
 
     public void showAllEmpl() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/empmange", "vatiza", "admin");
             System.out.println("Database Connected!");
             String sql;
             sql = "SELECT *FROM employee";
-            PreparedStatement stm = con.prepareStatement(sql);
+            PreparedStatement stm = conn.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
             DefaultTableModel model = (DefaultTableModel) allempTable.getModel();
             model.setRowCount(0);
